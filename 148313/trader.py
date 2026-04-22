@@ -68,6 +68,7 @@ OSM_FAIR         = 10_000   # stationary mean (σ≈5, no drift across all 3 day
 OSM_EMA_ALPHA    = 0.02     # slow EMA — secondary fair-value estimate
 OSM_ANCHOR_WT    = 0.80     # weight on hard anchor vs EMA blend
 OSM_SKEW_FACTOR  = 0.10     # per-unit inventory skew on threshold
+OSM_ADD_EDGE     = 2        # minimum ticks of edge required for aggressive orders
 OSM_AGG_MAX      = 20       # max qty per aggressive fill
 OSM_PASSIVE_L1   = 30       # primary passive quote size (scaled by inv)
 OSM_PASSIVE_L2   = 15       # secondary level (deeper, catches big swings)
@@ -86,7 +87,7 @@ KEY_OSM_MID = "o_mid"   # last known good OSM mid price (new)
 # --> added these 2 as they will be used for the fix i am working on which at _mid_safe() for which i have included optional as well in the imports part
 # so if the "_mid_safe()" returns None or float like Optional[float] then bot will know okay it might return a float or None.
 KEY_PEP_IC  = "p_ic"    # PEP intercept EMA
-KEY_PEP_MID = "p_mid"   # last known good PEP mid price (new)
+KEY_PEP_MID = "p_mid"   # last known good PEP mid price (new)w
 
 
 # ══════════════════════════════════════════════════════════════════════════════
