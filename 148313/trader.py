@@ -175,9 +175,9 @@ class Trader:
         orders: List[Order] = []
         pos = self._pos(state, OSM)
         lim = LIMITS[OSM]
-        mid = self._mid(od)
-        if mid is None:
-            return orders
+        # mid = self._mid(od)
+        # if mid is None:
+        #     return orders
 
         bb = self._best_bid(od)
         ba = self._best_ask(od)
