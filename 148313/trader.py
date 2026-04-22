@@ -190,9 +190,9 @@ class Trader:
         # Pure anchor (10000) dominates; EMA adapts slowly to any long-term drift.
         # KEY FIX vs v5: NO autocorrelation adjustment — it was pulling fair
         # away from mid and preventing aggressive fills.
-        ema = data.get("o_ema", float(OSM_FAIR))
+        ema = data.get(KEY_OSM_EMA, float(OSM_FAIR)) # using the named constant
         ema = ema * (1.0 - OSM_EMA_ALPHA) + mid * OSM_EMA_ALPHA
-        data["o_ema"] = ema
+        data[KEY_OSM_EMA] = ema # using the named constant
 
         fair = OSM_ANCHOR_WT * OSM_FAIR + (1.0 - OSM_ANCHOR_WT) * ema
 
