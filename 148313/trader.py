@@ -182,6 +182,10 @@ class Trader:
         bb = self._best_bid(od)
         ba = self._best_ask(od)
 
+        mid = self._mid_safe(od, data, KEY_OSM_EMA)
+        if mid is None:
+            return orders
+
         # ── Fair value: anchor-weighted blend with slow EMA ───────────────────
         # Pure anchor (10000) dominates; EMA adapts slowly to any long-term drift.
         # KEY FIX vs v5: NO autocorrelation adjustment — it was pulling fair
