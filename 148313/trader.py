@@ -239,7 +239,7 @@ class Trader:
 
         # Primary level: penny improve best bid/ask
         if buy_room > 0 and bb is not None:
-            p_bid = min(bb + 1, int(math.floor(fair)) - 1)  # don't overpay above fair
+            p_bid = min(bb + 1, int(math.floor(fair)))  # don't overpay above fair | FIX: correct penny improve
             if p_bid > 0 and p_bid < (ba if ba else float('inf')):
                 sz = max(1, min(int(OSM_PASSIVE_L1 * size_scale), buy_room))
                 orders.append(Order(OSM, p_bid, sz))
