@@ -1,8 +1,21 @@
 """
+# FROM:
 IMC Prosperity 4 – Round 1 (Intara) | Optimised Algo v6
 =========================================================
 Author : Harsh Sharma
 Products: ASH_COATED_OSMIUM (OSM) | INTARIAN_PEPPER_ROOT (PEP)
+
+# TO:
+IMC Prosperity 4 – Round 1 (Intara) | Optimised Algo v7
+=========================================================
+Original Author : Harsh Sharma
+Improvements by : Mayank Malik
+
+CHANGES v6 → v7:
+  Fix 1: Passive bid -1 offset removed (1,225 ticks gain queue priority)
+  Fix 2: _mid_safe() replaces _mid() (1,480 corrupted ticks fixed)
+  Fix 3: OSM_AGG_EDGE=2 added (944 break-even trades eliminated)
+═══════════════════════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════════════════════
 DIAGNOSIS OF v5 DROP: 6647 → ~4700  (−~2000 XIREC)
