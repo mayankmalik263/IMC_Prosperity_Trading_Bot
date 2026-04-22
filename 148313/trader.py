@@ -82,8 +82,12 @@ PEP_PASSIVE_SZ   = 40       # large passive bid to fill remaining room
 # ── Memory keys (strings stored in traderData between ticks) ──────────────
 KEY_OSM_EMA = "o_ema"   # OSM exponential moving average
 KEY_OSM_MID = "o_mid"   # last known good OSM mid price (new)
+
+# --> added these 2 as they will be used for the fix i am working on which at _mid_safe() for which i have included optional as well in the imports part
+# so if the "_mid_safe()" returns None or float like Optional[float] then bot will know okay it might return a float or None.
 KEY_PEP_IC  = "p_ic"    # PEP intercept EMA
 KEY_PEP_MID = "p_mid"   # last known good PEP mid price (new)
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  TRADER
