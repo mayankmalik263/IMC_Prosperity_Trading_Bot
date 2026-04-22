@@ -79,6 +79,11 @@ PEP_IC_ALPHA     = 0.003    # EMA alpha for intercept tracker (very slow)
 PEP_BUY_EDGE     = 8        # buy up to fair+8 (opp cost = 50×0.001=0.05/tick)
 PEP_PASSIVE_SZ   = 40       # large passive bid to fill remaining room
 
+# ── Memory keys (strings stored in traderData between ticks) ──────────────
+KEY_OSM_EMA = "o_ema"   # OSM exponential moving average
+KEY_OSM_MID = "o_mid"   # last known good OSM mid price (new)
+KEY_PEP_IC  = "p_ic"    # PEP intercept EMA
+KEY_PEP_MID = "p_mid"   # last known good PEP mid price (new)
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  TRADER
