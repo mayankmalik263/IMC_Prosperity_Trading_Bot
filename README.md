@@ -64,6 +64,22 @@ Related commits:
 - 490b36d - removed obsolete trader.py file
 - 85f2bd2 - renamed trader.py to trader_v7.py
 
+## How These Improvements Improve the Algorithm
+
+These changes improve strategy behavior, not just code readability.
+
+- More robust fair-value estimation: _mid_safe() and None guards prevent broken mid-price updates when the order book is one-sided.
+- Better trade selection: minimum aggressive edge and refined thresholds reduce low-quality, break-even, or negative-expectation fills.
+- Improved passive execution quality: corrected penny-improvement logic helps with stronger queue positioning for limit orders.
+- More stable state across ticks: safer key usage and guarded updates reduce silent data issues that can distort EMA and decision signals.
+- Easier and safer iteration: named constants, cleanup, and clearer structure reduce implementation mistakes during future tuning.
+
+Expected overall impact:
+
+- Lower chance of erratic behavior in thin or noisy books.
+- Better conversion of signal edge into realized PnL.
+- More consistent behavior between backtests and live-style runs.
+
 ## Commit History (Tidy View)
 
 Quick summary:
