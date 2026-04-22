@@ -119,6 +119,19 @@ class Trader:
         return bb if bb is not None else ba
     @staticmethod
     def _mid_safe(od: OrderDepth, data: dict, key:str) -> Optional[float]:
+        """
+    Safe mid-price calculation that handles one-sided order books.
+
+    Problem with original _mid():
+      When only one side of the book exists (e.g. bids but no asks),
+      _mid() returns the bid price as mid. This can be 20+ ticks below
+      the true mid, corrupting the EMA on 7.7% of OSM ticks.
+
+    Fix:
+      Both sides present → compute real mid, save to data[key]
+      One side missing  → return data[key] (previous good mid)
+      Very first tick   → use whatever single price exists
+    """
         bb = max(od.buy_orders) if od.buy_orders else None
         ba = min(od.sell_orders) if od.sell_orders else None
         if bb is not None and ba is not None:
