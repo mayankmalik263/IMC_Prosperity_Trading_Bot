@@ -269,7 +269,7 @@ class Trader:
         orders: List[Order] = []
         pos = self._pos(state, PEP)
         lim = LIMITS[PEP]
-        mid = self._mid(od)
+        mid = self._mid_safe(od) # using the safe mid
         if mid is None:
             return orders
 
