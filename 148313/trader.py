@@ -49,7 +49,7 @@ BACKTEST  (aggressive taker simulation, 3 historical days)
 """
 
 from datamodel import OrderDepth, TradingState, Order
-from typing import List, Dict
+from typing import List, Dict, Optional
 import json
 import math
 
