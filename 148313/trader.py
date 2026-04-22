@@ -117,6 +117,17 @@ class Trader:
         if bb is not None and ba is not None:
             return (bb + ba) / 2.0
         return bb if bb is not None else ba
+    @staticmethod
+    def _mid_safe(od: OrderDepth, data: dict, key:str) -> Optional[float]:
+        bb = max(od.buy_orders) if od.buy_orders else None
+        ba = min(od.sell_orders) if od.sell_orders else None
+        if bb is not None and ba is not None:
+            mid = (bb + ba)/2.0
+            data[key] = mid
+        else:
+            mid = bb if bb is not None else ba # first tick with no history
+
+        return mid
 
     @staticmethod
     def _clamp(val: int, lo: int, hi: int) -> int:
