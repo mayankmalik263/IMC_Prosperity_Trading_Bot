@@ -280,14 +280,14 @@ class Trader:
         # Detrend: intercept = mid − slope × ts.  Track with slow EMA.
         # Snap immediately on day-boundary (intercept jumps ~1000 between days).
         implied_ic = mid - PEP_SLOPE * ts
-        ic_ema     = data.get("p_ic", implied_ic)
+        ic_ema     = data.get(KEY_PEP_IC, implied_ic) # using the named constant 
 
         if abs(implied_ic - ic_ema) > 400:   # day-boundary snap
             ic_ema = implied_ic
         else:
             ic_ema = ic_ema * (1.0 - PEP_IC_ALPHA) + implied_ic * PEP_IC_ALPHA
 
-        data["p_ic"] = ic_ema
+        data[KEY_PEP_IC] = ic_ema # using the named constant
         fair = ic_ema + PEP_SLOPE * ts
 
         # ── 1. AGGRESSIVE BUY ─────────────────────────────────────────────────
