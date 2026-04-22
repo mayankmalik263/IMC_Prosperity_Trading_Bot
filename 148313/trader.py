@@ -201,8 +201,8 @@ class Trader:
         # Short inventory → raise both thresholds (easier to buy, harder to sell).
         skew = pos * OSM_SKEW_FACTOR
 
-        buy_thr  = fair - skew   # buy when ask ≤ this
-        sell_thr = fair - skew   # sell when bid ≥ this
+        buy_thr  = fair - skew - OSM_ADD_EDGE  # buy when ask ≤ this | FIX: only buy if genuinely cheap
+        sell_thr = fair - skew + OSM_ADD_EDGE  # sell when bid ≥ this | FIX: only sell if genuinely expensive
 
         # ── 1. AGGRESSIVE TAKES ───────────────────────────────────────────────
         if od.sell_orders:
