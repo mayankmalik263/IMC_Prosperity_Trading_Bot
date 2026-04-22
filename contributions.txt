@@ -1,0 +1,26 @@
+Contribution Notes
+Project: IMC Prosperity Trading Bot
+
+What I found and fixed personally (easy issues)
+- Fixed the missing datamodel setup so imports could run without module errors.
+- Handled file organization changes (renames and cleanup of old files).
+- Added small typing/readability updates like Optional import and explanatory comments.
+- Replaced simple raw string key usage with clearer named constants in straightforward places.
+
+Harder issues (3 key fixes)
+- Safe mid-price handling bug (found and fixed by AI):
+  AI identified that one-sided order books could break mid-price updates and corrupt EMA flow.
+  AI fixed it by introducing safer mid logic and None guards.
+
+- Zero-edge aggressive execution bug (found and fixed by me):
+  I identified that the strategy could take break-even/weak aggressive trades.
+  I fixed it by enforcing a minimum tick edge before aggressive orders.
+
+- Passive queue-position pricing bug (found and fixed by AI):
+  AI identified a penny-improvement/queue-priority issue in bid logic.
+  AI fixed the pricing path to improve passive order quality.
+
+How I used AI overall
+- I used AI to understand the full codebase flow end-to-end.
+- I used AI to break down strategy logic and connect pricing/state behavior.
+- I used AI for deep debugging on complex logic while I handled simpler fixes and structure updates.
